@@ -1,0 +1,45 @@
+.wrap.plan-your-visit {
+	display: block;
+	max-width: 400px;
+	padding: 2em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.wrap.plan-your-visit img {
+	max-width: 100%;
+}
+
+.wrap.plan-your-visit input {
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+	margin-bottom: 1em;
+}
+
+.wrap.plan-your-visit input[type="submit"] {
+	-webkit-appearance: none;
+	background-color: #aa4cf7;
+	color: white;
+	font-size: 1.25em;
+	padding: 1em;
+	cursor: pointer;
+}
+
+.wrap.plan-your-visit input[type="submit"]:hover,
+.wrap.plan-your-visit input[type="submit"]:focus,
+.wrap.plan-your-visit input[type="submit"]:active {
+	background-color: #921AF4;
+}
+
+.wrap.plan-your-visit .message {
+	font-weight: bold;
+}
+
+.wrap.plan-your-visit .message.success {
+	color: green;
+}
+
+.wrap.plan-your-visit .message.error {
+	color: red;
+}
