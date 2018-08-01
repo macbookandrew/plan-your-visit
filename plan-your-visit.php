@@ -88,6 +88,7 @@ class Plan_Your_Visit {
 
 		// Frontend.
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
+		add_filter( 'script_loader_tag', array( $this, 'force_async' ), 99, 2 );
 	}
 
 	/**
@@ -131,6 +132,23 @@ class Plan_Your_Visit {
 	}
 
 	/**
+	 * Add async attribute if the path contains this plugin directory.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param  string $tag    HTML <script> tag.
+	 * @param  string $handle WordPress’ internal handle for this script.
+	 *
+	 * @return string         HTML <script> tag.
+	 */
+	public function force_async( string $tag, string $handle ) {
+		if ( strpos( $tag, 'api.churchhero.com' ) !== false ) {
+			$tag = str_replace( ' src', ' async="async" src', $tag );
+		}
+		return $tag;
+	}
+
+	/**
 	 * Register backend assets.
 	 *
 	 * @since  1.0.0
@@ -138,7 +156,7 @@ class Plan_Your_Visit {
 	 * @return void Registers scripts and styles.
 	 */
 	public function register_assets() {
-		wp_register_script( 'plan-your-visit-backend', $this->plugin_dir_url( 'assets/plan-your-visit.js' ), array( 'jquery' ), $this->version, true );
+		wp_register_script( 'plan-your-visit-backend', $this->plugin_dir_url( 'assets/plan-your-visit.js' ), array( 'jquery' ), $this->version, false );
 		wp_register_style( 'plan-your-visit-backend', $this->plugin_dir_url( 'assets/plan-your-visit.css' ), array(), $this->version );
 	}
 
