@@ -43,3 +43,7 @@
 .wrap.plan-your-visit .message.error {
 	color: red;
 }
+
+.wrap.plan-your-visit .logo.church-hero {
+	max-width: 200px;
+}

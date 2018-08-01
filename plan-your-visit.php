@@ -183,9 +183,9 @@ class Plan_Your_Visit {
 		wp_enqueue_style( 'plan-your-visit-backend' );
 		?>
 		<div class="wrap plan-your-visit">
-			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/church-hero.png' ) ); ?>" alt="Church Hero" /></p>
+			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/church-hero.png' ) ); ?>" alt="Church Hero" class="logo church-hero" /></p>
 			<p>Enter your Church Hero login information below to install Plan&nbsp;Your&nbsp;Visit on your website.</p>
-			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/plan-your-visit.png' ) ); ?>" alt="Plan Your Visit" /></p>
+			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/plan-your-visit.png' ) ); ?>" alt="Plan Your Visit" class="logo plan-your-visit" /></p>
 			<form method="post" id="church-hero-login" action="https://api.churchhero.com/pyv-auth">
 				<p class="message">
 					<?php
