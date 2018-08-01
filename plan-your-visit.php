@@ -168,7 +168,7 @@ class Plan_Your_Visit {
 	 * @return void Adds admin menu item.
 	 */
 	public function admin_menu() {
-		add_menu_page( 'Plan Your Visit', 'Plan Your Visit', 'manage_options', 'plan-your-visit', array( $this, 'login_page' ), $this->plugin_dir_url( 'assets/plan-your-visit-icon.png' ) );
+		add_menu_page( 'Plan Your Visit', 'Plan Your Visit', 'manage_options', 'plan-your-visit', array( $this, 'login_page' ), $this->plugin_dir_url( 'assets/plan-your-visit-icon.svg' ) );
 	}
 
 	/**
