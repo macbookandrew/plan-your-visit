@@ -3,7 +3,7 @@
  * Plugin Name: Plan Your Visit
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: AndrewRMinion Design
  * Author URI: https://andrewrminion.com
  * Copyright: 2018 AndrewRMinion Design
@@ -134,14 +134,14 @@ class Plan_Your_Visit {
 	/**
 	 * Add async attribute if the path contains this plugin directory.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.1
 	 *
 	 * @param  string $tag    HTML <script> tag.
 	 * @param  string $handle WordPress’ internal handle for this script.
 	 *
 	 * @return string         HTML <script> tag.
 	 */
-	public function force_async( string $tag, string $handle ) {
+	public function force_async( $tag, $handle ) {
 		if ( strpos( $tag, 'api.churchhero.com' ) !== false ) {
 			$tag = str_replace( ' src', ' async="async" src', $tag );
 		}
@@ -189,8 +189,9 @@ class Plan_Your_Visit {
 			<form method="post" id="church-hero-login" action="https://api.churchhero.com/pyv-auth">
 				<p class="message">
 					<?php
-					if ( ! empty( get_option( 'plan_your_visit_authorization' ) ) ) {
 						echo 'Your authorization key has been saved; enter new credentials to change your account or deactivate the plugin to clear it.';
+					$authorization = get_option( 'plan_your_visit_authorization' );
+					if ( ! empty( $authorization ) ) {
 					}
 					?>
 				</p>
@@ -213,12 +214,14 @@ class Plan_Your_Visit {
 	 * @return void Echos bool whether option was updated or not and dies.
 	 */
 	public function save_key() {
-		if ( wp_verify_nonce( $_POST['nonce'], 'plan_your_visit_save_key' ) ) {
-			if ( wp_unslash( $_POST['key'] ) === get_option( 'plan_your_visit_authorization' ) ) {
+		if ( isset( $_POST['nonce'] ) && wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'plan_your_visit_save_key' ) ) {
+			if ( isset( $_POST['key'] ) && sanitize_key( $_POST['key'] ) === get_option( 'plan_your_visit_authorization' ) ) {
 				$result = true;
+			} elseif ( isset( $_POST['email'] ) && isset( $_POST['key'] ) ) {
+				$result = update_option( 'plan_your_visit_email', sanitize_key( $_POST['email'] ) );
+				$result = update_option( 'plan_your_visit_authorization', sanitize_key( $_POST['key'] ) );
 			} else {
-				$result = update_option( 'plan_your_visit_email', esc_attr( wp_unslash( $_POST['email'] ) ) ); // WPCS: XSS ok.
-				$result = update_option( 'plan_your_visit_authorization', esc_attr( wp_unslash( $_POST['key'] ) ) ); // WPCS: XSS ok.
+				$result = false;
 			}
 		}
 
