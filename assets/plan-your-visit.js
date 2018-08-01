@@ -63,6 +63,10 @@
 			} else {
 				$message.addClass('error').text('Please check your login credentials.');
 			}
+		}).error(function(jqXHR, textStatus) {
+			if ('error' === textStatus) {
+				$message.addClass('error').text('Please check your login credentials.');
+			}
 		});
 
 	});
