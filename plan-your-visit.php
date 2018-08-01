@@ -189,9 +189,9 @@ class Plan_Your_Visit {
 			<form method="post" id="church-hero-login" action="https://api.churchhero.com/pyv-auth">
 				<p class="message">
 					<?php
-						echo 'Your authorization key has been saved; enter new credentials to change your account or deactivate the plugin to clear it.';
 					$authorization = get_option( 'plan_your_visit_authorization' );
 					if ( ! empty( $authorization ) ) {
+						echo 'Your authorization key has been saved; enter new credentials to change your account or deactivate the plugin to clear your credentials.';
 					}
 					?>
 				</p>
