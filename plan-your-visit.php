@@ -3,7 +3,7 @@
  * Plugin Name: Plan Your Visit
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: AndrewRMinion Design
  * Author URI: https://andrewrminion.com
  * Copyright: 2018 AndrewRMinion Design
@@ -134,7 +134,7 @@ class Plan_Your_Visit {
 	/**
 	 * Add async attribute if the path contains this plugin directory.
 	 *
-	 * @since 1.0.1
+	 * @since 1.0.2
 	 *
 	 * @param  string $tag    HTML <script> tag.
 	 * @param  string $handle WordPress’ internal handle for this script.
