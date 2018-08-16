@@ -42,7 +42,7 @@ class Plan_Your_Visit {
 	 *
 	 * @var  string Plugin version.
 	 */
-	private $version = '1.0.0';
+	private $version = '1.0.2';
 
 	/**
 	 * Class instance.
