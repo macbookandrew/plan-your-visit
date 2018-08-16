@@ -4,9 +4,9 @@
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
  * Version: 1.0.2
- * Author: AndrewRMinion Design
- * Author URI: https://andrewrminion.com
- * Copyright: 2018 AndrewRMinion Design
+ * Author: Church Hero
+ * Author URI: https://churchhero.com
+ * Copyright: 2018 Church Hero
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
