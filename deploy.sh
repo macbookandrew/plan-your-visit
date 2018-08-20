@@ -168,6 +168,10 @@ svn delete --force $SVNPATH/trunk/assets
 echo "Setting SVN MIME types"
 svn propset svn:mime-type image/png *.png
 svn propset svn:mime-type image/jpeg *.jpg
+svn propset svn:mime-type image/jpeg banner-1544x500.jpg
+svn propset svn:mime-type image/jpeg banner-722x250.jpg
+svn propset svn:mime-type image/jpeg icon-128x128.jpg
+svn propset svn:mime-type image/jpeg icon-256x256.jpg
 
 echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
