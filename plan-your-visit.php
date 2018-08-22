@@ -3,7 +3,7 @@
  * Plugin Name: Plan Your Visit
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Church Hero
  * Author URI: https://churchhero.com
  * Copyright: 2018 Church Hero
