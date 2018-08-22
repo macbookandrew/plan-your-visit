@@ -81,7 +81,7 @@ class Plan_Your_Visit {
 
 		// Admin menu and page.
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_assets' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_dist' ) );
 
 		// Ajax actions.
 		add_action( 'wp_ajax_plan_your_visit_save_key', array( $this, 'save_key' ) );
@@ -149,15 +149,15 @@ class Plan_Your_Visit {
 	}
 
 	/**
-	 * Register backend assets.
+	 * Register backend dist.
 	 *
 	 * @since  1.0.0
 	 *
 	 * @return void Registers scripts and styles.
 	 */
-	public function register_assets() {
-		wp_register_script( 'plan-your-visit-backend', $this->plugin_dir_url( 'assets/plan-your-visit.js' ), array( 'jquery' ), $this->version, false );
-		wp_register_style( 'plan-your-visit-backend', $this->plugin_dir_url( 'assets/plan-your-visit.css' ), array(), $this->version );
+	public function register_dist() {
+		wp_register_script( 'plan-your-visit-backend', $this->plugin_dir_url( 'dist/plan-your-visit.js' ), array( 'jquery' ), $this->version, false );
+		wp_register_style( 'plan-your-visit-backend', $this->plugin_dir_url( 'dist/plan-your-visit.css' ), array(), $this->version );
 	}
 
 	/**
@@ -168,7 +168,7 @@ class Plan_Your_Visit {
 	 * @return void Adds admin menu item.
 	 */
 	public function admin_menu() {
-		add_menu_page( 'Plan Your Visit', 'Plan Your Visit', 'manage_options', 'plan-your-visit', array( $this, 'login_page' ), $this->plugin_dir_url( 'assets/plan-your-visit-icon.svg' ) );
+		add_menu_page( 'Plan Your Visit', 'Plan Your Visit', 'manage_options', 'plan-your-visit', array( $this, 'login_page' ), $this->plugin_dir_url( 'dist/plan-your-visit-icon.svg' ) );
 	}
 
 	/**
@@ -183,9 +183,9 @@ class Plan_Your_Visit {
 		wp_enqueue_style( 'plan-your-visit-backend' );
 		?>
 		<div class="wrap plan-your-visit">
-			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/church-hero.png' ) ); ?>" alt="Church Hero" class="logo church-hero" /></p>
+			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'dist/church-hero.png' ) ); ?>" alt="Church Hero" class="logo church-hero" /></p>
 			<p>Enter your Church Hero login information below to install Plan&nbsp;Your&nbsp;Visit on your website.</p>
-			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'assets/plan-your-visit.png' ) ); ?>" alt="Plan Your Visit" class="logo plan-your-visit" /></p>
+			<p><img src="<?php echo esc_url( $this->plugin_dir_url( 'dist/plan-your-visit.png' ) ); ?>" alt="Plan Your Visit" class="logo plan-your-visit" /></p>
 			<form method="post" id="church-hero-login" action="https://api.churchhero.com/pyv-auth">
 				<p class="message">
 					<?php
