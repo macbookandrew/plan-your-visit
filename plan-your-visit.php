@@ -3,7 +3,7 @@
  * Plugin Name: Plan Your Visit
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Church Hero
  * Author URI: https://churchhero.com
  * Copyright: 2018 Church Hero
@@ -215,11 +215,11 @@ class Plan_Your_Visit {
 	 */
 	public function save_key() {
 		if ( isset( $_POST['nonce'] ) && wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'plan_your_visit_save_key' ) ) {
-			if ( isset( $_POST['key'] ) && sanitize_key( $_POST['key'] ) === get_option( 'plan_your_visit_authorization' ) ) {
+			if ( isset( $_POST['key'] ) && sanitize_text_field( $_POST['key'] ) === get_option( 'plan_your_visit_authorization' ) ) {
 				$result = true;
 			} elseif ( isset( $_POST['email'] ) && isset( $_POST['key'] ) ) {
-				$result = update_option( 'plan_your_visit_email', sanitize_key( $_POST['email'] ) );
-				$result = update_option( 'plan_your_visit_authorization', sanitize_key( $_POST['key'] ) );
+				$result = update_option( 'plan_your_visit_email', sanitize_email( $_POST['email'] ) );
+				$result = update_option( 'plan_your_visit_authorization', sanitize_text_field( $_POST['key'] ) );
 			} else {
 				$result = false;
 			}
