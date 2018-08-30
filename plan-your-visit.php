@@ -3,7 +3,7 @@
  * Plugin Name: Plan Your Visit
  * Plugin URI: https://churchhero.com/
  * Description: Adds required code for Plan Your Visit
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Church Hero
  * Author URI: https://churchhero.com
  * Copyright: 2018 Church Hero
@@ -42,7 +42,7 @@ class Plan_Your_Visit {
 	 *
 	 * @var  string Plugin version.
 	 */
-	private $version = '1.0.2';
+	private $version = '1.0.5';
 
 	/**
 	 * Class instance.
@@ -58,7 +58,7 @@ class Plan_Your_Visit {
 	 *
 	 * @return Plan_Your_Visit class.
 	 */
-	public static function get_instance() : Plan_Your_Visit {
+	public static function get_instance() {
 		if ( null === self::$instance ) {
 			self::$instance = new Plan_Your_Visit();
 		}

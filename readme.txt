@@ -2,7 +2,7 @@
 Contributors: macbookandrew
 Requires at least: 4.8
 Tested up to: 4.9.7
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -36,6 +36,9 @@ This plugin requires an active ChurchHero.com account as well as WooCommerce.
 1. Authorization screen
 
 == Changelog ==
+
+= 1.0.5 =
+* Fix bug on PHP 5.x.
 
 = 1.0.4 =
 * Fix case-sensitive authorization key.
